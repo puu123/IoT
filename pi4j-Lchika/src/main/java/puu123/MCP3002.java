@@ -21,8 +21,8 @@ public class MCP3002 {
 
 		byte[] command = new byte[2];
 		command[0] = channel == 0 ?
-				(byte) 0b01101000:
-				(byte) 0b01111000;
+				(byte) 0b1101_000:
+				(byte) 0b1111_000;
 		command[1] = 0b00;
 
 		Spi.wiringPiSPIDataRW(cs, command, 2);
