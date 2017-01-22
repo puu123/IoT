@@ -21,14 +21,15 @@ public class MCP3002 {
 
 		byte[] command = new byte[2];
 		command[0] = channel == 0 ?
-				(byte) 0b1101_000:
-				(byte) 0b1111_000;
-		command[1] = 0b00;
+				(byte) 0b0110_1000:
+				(byte) 0b0111_1000;
+		command[1] = 0b0000_0000;
 
-		Spi.wiringPiSPIDataRW(cs, command, 2);
-		int intMSB = (command[0] << 7) & 0x380;
-		int intLSB = (command[1] << 1) & 0x7f;
-		int value = (intMSB + intLSB) & 0x3ff;
+		Spi.wiringPiSPIDataRW(cs, command);
+		//int intMSB = (command[0] << 7) & 0x380;
+		//int intLSB = (command[1] << 1) & 0x7f;
+		//int value = (intMSB + intLSB) & 0x3ff;
+		int value = ((command[0]<<8) + command[1]) & 0x03FF;
 		return value;
 	}
 
@@ -39,11 +40,12 @@ public class MCP3002 {
 	}
 
 	public static void main(String[] args) {
-		MCP3002 mcp3002 = new MCP3002(0, CLOCK1M);
-		System.out.println(mcp3002.readVolt(CS0));
-		System.out.println(mcp3002.readVolt(CS0));
-		System.out.println(mcp3002.readVolt(CS0));
 
+		MCP3002 mcp3002 = new MCP3002(CS0, CLOCK1M);
+		while(true) {
+			System.out.println(mcp3002.readVolt(0));
+			System.out.println(mcp3002.readVolt(1));
+		}
 	}
 
 }
