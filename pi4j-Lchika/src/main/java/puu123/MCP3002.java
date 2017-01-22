@@ -27,7 +27,7 @@ public class MCP3002 {
 
 		Spi.wiringPiSPIDataRW(cs, command, 2);
 		int intMSB = (command[0] << 7) & 0x380;
-		int intLSB = (command[0] << 1) & 0x7f;
+		int intLSB = (command[1] << 1) & 0x7f;
 		int value = (intMSB + intLSB) & 0x3ff;
 		return value;
 	}
