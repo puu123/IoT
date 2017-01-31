@@ -54,7 +54,7 @@ public class PwmExample {
         // see: http://wiringpi.com/reference/raspberry-pi-specifics/
         com.pi4j.wiringpi.Gpio.pwmSetMode(com.pi4j.wiringpi.Gpio.PWM_MODE_MS);
         com.pi4j.wiringpi.Gpio.pwmSetRange(1000);
-        com.pi4j.wiringpi.Gpio.pwmSetClock(500);
+        com.pi4j.wiringpi.Gpio.pwmSetClock(384);
 
         // set the PWM rate to 500
         pwm.setPwm(500);
