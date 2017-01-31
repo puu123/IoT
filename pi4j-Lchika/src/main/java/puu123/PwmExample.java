@@ -44,9 +44,9 @@ public class PwmExample {
         // by default we will use gpio pin #01; however, if an argument
         // has been provided, then lookup the pin by address
         Pin pin = CommandArgumentParser.getPin(
-                RaspiPin.class,    // pin provider class to obtain pin instance from
-                RaspiPin.GPIO_01,  // default pin if no pin argument found
-                args);             // argument array to search in
+                RaspiPin.class, // pin provider class to obtain pin instance from
+                RaspiPin.GPIO_01, // default pin if no pin argument found
+                args); // argument array to search in
 
         GpioPinPwmOutput pwm = gpio.provisionPwmOutputPin(pin);
 
@@ -62,17 +62,16 @@ public class PwmExample {
 
         //console.println("Press ENTER to set the PWM to a rate of 250");
         //System.console().readLine();
-        readLine("Press ENTER to set the PWM to a rate of 250");
+        readValue("Press ENTER to set the PWM to a rate of 250");
 
         // set the PWM rate to 250
         pwm.setPwm(250);
         console.println("PWM rate is: " + pwm.getPwm());
         Thread.sleep(500);
 
-
         //console.println("Press ENTER to set the PWM to a rate to 0 (stop PWM)");
         //System.console().readLine();
-        readLine("Press ENTER to set the PWM to a rate to 0 (stop PWM)");
+        readValue("Press ENTER to set the PWM to a rate to 0 (stop PWM)");
 
         // set the PWM rate to 0
         pwm.setPwm(0);
@@ -92,6 +91,13 @@ public class PwmExample {
         BufferedReader reader = new BufferedReader(new InputStreamReader(
                 System.in));
         return reader.readLine();
+    }
+
+    private static char[] readValue(String format, Object... args)
+            throws IOException {
+        if (System.console() != null)
+            return System.console().readPassword(format, args);
+        return readLine(format, args).toCharArray();
     }
 
 }
