@@ -50,22 +50,24 @@ public class PwmExample {
 
         GpioPinPwmOutput pwm = gpio.provisionPwmOutputPin(pin);
 
+
+
         // you can optionally use these wiringPi methods to further customize the PWM generator
         // see: http://wiringpi.com/reference/raspberry-pi-specifics/
         com.pi4j.wiringpi.Gpio.pwmSetMode(com.pi4j.wiringpi.Gpio.PWM_MODE_MS);
-        com.pi4j.wiringpi.Gpio.pwmSetRange(1000);
-        com.pi4j.wiringpi.Gpio.pwmSetClock(384);
+        com.pi4j.wiringpi.Gpio.pwmSetRange(1024);
+        com.pi4j.wiringpi.Gpio.pwmSetClock(400);
 
         // set the PWM rate to 500
-        pwm.setPwm(500);
+        pwm.setPwm(24);
         console.println("PWM rate is: " + pwm.getPwm());
 
         //console.println("Press ENTER to set the PWM to a rate of 250");
         //System.console().readLine();
-        readValue("Press ENTER to set the PWM to a rate of 250");
+        readValue("Press ENTER to set the PWM to a rate of 115");
 
         // set the PWM rate to 250
-        pwm.setPwm(250);
+        pwm.setPwm(115);
         console.println("PWM rate is: " + pwm.getPwm());
         Thread.sleep(500);
 
