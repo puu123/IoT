@@ -1,5 +1,9 @@
 package puu123;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinPwmOutput;
@@ -19,7 +23,7 @@ public class PwmExample {
      * @param args
      * @throws InterruptedException
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Exception {
 
         // create Pi4J console wrapper/helper
         // (This is a utility class to abstract some of the boilerplate code)
@@ -56,16 +60,18 @@ public class PwmExample {
         pwm.setPwm(500);
         console.println("PWM rate is: " + pwm.getPwm());
 
-        console.println("Press ENTER to set the PWM to a rate of 250");
-        System.console().readLine();
+        //console.println("Press ENTER to set the PWM to a rate of 250");
+        //System.console().readLine();
+        readLine("Press ENTER to set the PWM to a rate of 250");
 
         // set the PWM rate to 250
         pwm.setPwm(250);
         console.println("PWM rate is: " + pwm.getPwm());
 
 
-        console.println("Press ENTER to set the PWM to a rate to 0 (stop PWM)");
-        System.console().readLine();
+        //console.println("Press ENTER to set the PWM to a rate to 0 (stop PWM)");
+        //System.console().readLine();
+        readLine("Press ENTER to set the PWM to a rate to 0 (stop PWM)");
 
         // set the PWM rate to 0
         pwm.setPwm(0);
@@ -74,6 +80,16 @@ public class PwmExample {
         // stop all GPIO activity/threads by shutting down the GPIO controller
         // (this method will forcefully shutdown all GPIO monitoring threads and scheduled tasks)
         gpio.shutdown();
+    }
+
+    private static String readLine(String format, Object... args) throws IOException {
+        if (System.console() != null) {
+            return System.console().readLine(format, args);
+        }
+        System.out.print(String.format(format, args));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(
+                System.in));
+        return reader.readLine();
     }
 
 }
