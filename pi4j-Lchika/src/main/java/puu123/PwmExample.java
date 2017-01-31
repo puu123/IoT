@@ -67,6 +67,7 @@ public class PwmExample {
         // set the PWM rate to 250
         pwm.setPwm(250);
         console.println("PWM rate is: " + pwm.getPwm());
+        Thread.sleep(500);
 
 
         //console.println("Press ENTER to set the PWM to a rate to 0 (stop PWM)");
@@ -76,6 +77,7 @@ public class PwmExample {
         // set the PWM rate to 0
         pwm.setPwm(0);
         console.println("PWM rate is: " + pwm.getPwm());
+        Thread.sleep(500);
 
         // stop all GPIO activity/threads by shutting down the GPIO controller
         // (this method will forcefully shutdown all GPIO monitoring threads and scheduled tasks)
