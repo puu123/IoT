@@ -35,6 +35,7 @@ dependencies {
 
 apply plugin: 'application'
 
+//mainClassName = 'puu123.MCP3002'
 mainClassName = 'puu123.MCP3002'
 
 run {
