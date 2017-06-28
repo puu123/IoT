@@ -34,7 +34,7 @@ https://www.intel.co.jp/content/www/jp/ja/support/boards-and-kits/intel-edison-b
  
  
  ・ESP32
- 
+ http://knaka0209.blogspot.jp/2017/03/esp32-5.html
  # 先に結果のまとめ
 Title	通常	起動時
 WIFI	 140mA -290mA	 450mA
