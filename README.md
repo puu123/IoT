@@ -21,6 +21,11 @@ http://mag.switch-science.com/2017/06/20/edison-joule-eol/
 https://www.intel.co.jp/content/www/jp/ja/support/boards-and-kits/intel-edison-boards/000006086.html
  7v-15v
  0.32w-0.41w
+ http://wondergadget.hatenablog.com/entry/2015/01/08/125915
+ 
+ http://pc.watch.impress.co.jp/docs/news/665900.html
+ 入力電圧は3.3～4.5V、出力は100mA/3.3Vと100mA/1.8V、待機消費電力は無線オフ時が13mW、Bluetoothオン時が50mW、無線LANオン時が40mW。
+ 
  
  ・Arduino
  
