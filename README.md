@@ -46,6 +46,8 @@ WIFI	 140mA -290mA	 450mA
 Blink( LED )	 40mA - 60mA	70mA
 
 ・PIC
+いますぐPICをやめてAVRに移行すべき10の理由
+http://d.hatena.ne.jp/yaneurao/20080228
 
 https://ja.wikipedia.org/wiki/PIC_(%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9)
 
